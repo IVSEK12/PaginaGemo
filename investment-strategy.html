@@ -13,6 +13,7 @@ tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-tin
 <style>
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
 .text-gradient { background: linear-gradient(to right, #000000, #0f1c2c); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.active-nav { border-bottom: 2px solid #000; padding-bottom: 2px; }
 </style>
 </head>
 <body class="bg-surface font-body text-on-surface selection:bg-secondary-container">
@@ -20,14 +21,14 @@ tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-tin
 <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/15 dark:border-slate-800/15 shadow-sm">
 <div class="flex justify-between items-center w-full px-8 py-4 max-w-none">
 <div class="text-xl font-black text-slate-900 dark:text-slate-50 tracking-tighter uppercase font-headline">Gemo</div>
-<div class="hidden md:flex items-center gap-8">
-<a class="text-slate-500 hover:text-slate-900 transition-colors font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="index.html">Platform Overview</a>
-<a class="text-slate-900 border-b-2 border-slate-900 pb-1 font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="investment-strategy.html">Investment Strategy</a>
-<a class="text-slate-500 hover:text-slate-900 transition-colors font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="institutional-vault.html">Institutional Vault</a>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline font-bold tracking-tight uppercase text-[11px]" href="index.html">Descripción de la Plataforma</a>
+<a class="text-primary active-nav font-headline font-bold tracking-tight uppercase text-[11px]" href="investment-strategy.html">Estrategia de Inversión</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-headline font-bold tracking-tight uppercase text-[11px]" href="institutional-vault.html">Bóveda Institucional</a>
 </div>
-<div class="flex items-center gap-4">
-<button class="px-5 py-2 text-sm font-['Manrope'] font-bold tracking-tight uppercase transition-all hover:bg-slate-100 dark:hover:bg-slate-800 rounded">Login</button>
-<button class="bg-primary text-on-primary px-6 py-2 text-sm font-['Manrope'] font-bold tracking-tight uppercase transition-transform scale-95 active:opacity-80 rounded shadow-sm">Register</button>
+<div class="flex items-center gap-6">
+<button class="text-xs font-headline font-bold uppercase tracking-tight hover:underline">Iniciar Sesión</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 text-xs font-headline font-bold tracking-tight uppercase rounded-sm hover:opacity-90">Registrarse</button>
 </div>
 </div>
 </nav>
