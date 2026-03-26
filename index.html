@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gemo | Arquitectura Predictiva Gemológica</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#525f71",
+              "surface-container-low": "#f2f4f6",
+              "on-secondary-fixed-variant": "#3a485b",
+              "secondary-fixed-dim": "#b9c7df",
+              "tertiary-container": "#002020",
+              "primary-fixed-dim": "#bac8dc",
+              "outline": "#74777d",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#6fd7d6",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#0d1c2e",
+              "surface-variant": "#e0e3e5",
+              "primary-fixed": "#d6e4f9",
+              "on-primary-fixed-variant": "#3a4859",
+              "on-tertiary": "#ffffff",
+              "primary": "#000000",
+              "on-tertiary-fixed": "#002020",
+              "tertiary-fixed": "#8cf3f3",
+              "inverse-surface": "#2d3133",
+              "on-surface": "#191c1e",
+              "error-container": "#ffdad6",
+              "background": "#f7f9fb",
+              "surface": "#f7f9fb",
+              "tertiary": "#000000",
+              "secondary-fixed": "#d5e3fc",
+              "on-secondary-container": "#57657a",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#e6e8ea",
+              "on-primary-fixed": "#0f1c2c",
+              "secondary": "#515f74",
+              "secondary-container": "#d5e3fc",
+              "surface-dim": "#d8dadc",
+              "surface-container": "#eceef0",
+              "on-background": "#191c1e",
+              "on-error": "#ffffff",
+              "primary-container": "#0f1c2c",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#189292",
+              "on-surface-variant": "#44474c",
+              "inverse-primary": "#bac8dc",
+              "surface-container-highest": "#e0e3e5",
+              "inverse-on-surface": "#eff1f3",
+              "on-tertiary-fixed-variant": "#004f4f",
+              "on-primary-container": "#778598",
+              "outline-variant": "#c4c6cc",
+              "surface-bright": "#f7f9fb",
+              "on-error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background: rgba(247, 249, 251, 0.8);
+        }
+        .micro-grid {
+            background-image: radial-gradient(#c4c6cc 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: 0.1;
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #000000, #0f1c2c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/15 dark:border-slate-800/15 shadow-sm">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-none">
+<div class="text-xl font-black text-slate-900 dark:text-slate-50 tracking-tighter uppercase font-headline">Gemo</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-900 border-b-2 border-slate-900 pb-1 font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="index.html">Platform Overview</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="investment-strategy.html">Investment Strategy</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="institutional-vault.html">Institutional Vault</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 text-sm font-['Manrope'] font-bold tracking-tight uppercase transition-all hover:bg-slate-100 dark:hover:bg-slate-800 rounded">Login</button>
+<button class="bg-primary text-on-primary px-6 py-2 text-sm font-['Manrope'] font-bold tracking-tight uppercase transition-transform scale-95 active:opacity-80 rounded shadow-sm">Register</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="relative px-8 lg:px-24 py-20 lg:py-32 grid lg:grid-cols-12 gap-12 items-center min-h-[921px]">
+<div class="lg:col-span-7 space-y-8">
+<div class="inline-flex items-center gap-2 bg-surface-container-high px-4 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Live: Diamond Index +0.42%</span>
+</div>
+<h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tighter leading-[1.1] text-on-surface">
+                    Valoración Gemológica de <span class="text-gradient">Alta Precisión.</span>
+</h1>
+<p class="text-on-surface-variant text-lg lg:text-xl max-w-2xl leading-relaxed">
+                    Optimice su cartera de activos mediante marcos de Gradient Boosting (XGBoost) que eliminan la volatilidad y la subjetividad en la predicción de precios de diamantes. <span class="font-bold text-on-surface">R² 0,982129</span>.
+                </p>
+<div class="flex flex-wrap gap-12 pt-4">
+<div>
+<div class="text-3xl font-headline font-black text-on-surface">1.94</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Elasticidad Precio-Peso</div>
+</div>
+<div>
+<div class="text-3xl font-headline font-black text-on-surface">54k+</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Registros Verificados</div>
+</div>
+<div>
+<div class="text-3xl font-headline font-black text-on-tertiary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-2xl">trending_up</span> 12.8%
+                        </div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Retorno Fancy Anual</div>
+</div>
+</div>
+</div>
+<!-- Victoria Instantánea Card -->
+<div class="lg:col-span-5">
+<div class="bg-surface-container-lowest p-8 lg:p-10 rounded shadow-sm relative overflow-hidden border border-outline-variant/10">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed/10 blur-3xl -mr-16 -mt-16"></div>
+<div class="relative z-10 space-y-6">
+<div class="space-y-1">
+<h3 class="font-headline font-extrabold text-xl uppercase tracking-tight">Victoria Instantánea</h3>
+<p class="text-xs text-on-surface-variant uppercase tracking-wider">Predictor de Valoración Flash</p>
+</div>
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant flex items-center justify-between">
+    <span>Carat Weight (Quilates)</span>
+    <span class="material-symbols-outlined text-xs cursor-pointer hover:text-primary transition-colors" onclick="document.getElementById('modal-carat').classList.remove('hidden')">info</span>
+</label>
+<input id="carat-input" class="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-primary" max="5.0" min="0.2" step="0.01" type="range" value="1.05"/>
+<div class="flex justify-between text-[11px] font-mono font-bold text-on-surface">
+<span>0.20 ct</span>
+<span id="carat-display">1.05 ct</span>
+<span>5.00 ct</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Cut Quality (Talla)</label>
+<div class="grid grid-cols-4 gap-2">
+<button class="cut-btn py-3 text-[10px] font-bold border border-primary bg-primary text-on-primary rounded-sm uppercase" data-cut="Ideal">Ideal</button>
+<button class="cut-btn py-3 text-[10px] font-bold border border-outline-variant hover:bg-surface-container-low transition-colors rounded-sm uppercase" data-cut="Premium">Premium</button>
+<button class="cut-btn py-3 text-[10px] font-bold border border-outline-variant hover:bg-surface-container-low transition-colors rounded-sm uppercase" data-cut="Good">Good</button>
+<button class="cut-btn py-3 text-[10px] font-bold border border-outline-variant hover:bg-surface-container-low transition-colors rounded-sm uppercase" data-cut="Fair">Fair</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant flex items-center justify-between">
+    <span>Clarity (Pureza)</span>
+    <span class="material-symbols-outlined text-xs cursor-pointer hover:text-primary transition-colors" onclick="document.getElementById('modal-clarity').classList.remove('hidden')">info</span>
+</label>
+<select id="clarity-select" class="w-full bg-surface-container-lowest border border-outline-variant/30 text-on-surface focus:ring-2 focus:ring-primary p-3 text-xs font-bold uppercase tracking-widest rounded-sm outline-none">
+    <option value="IF">IF (Internally Flawless)</option>
+    <option value="VVS">VVS (Very Very Small Inclusions)</option>
+    <option value="VS">VS (Very Small Inclusions)</option>
+    <option value="SI">SI (Small Inclusions)</option>
+    <option value="I">I (Included 1 o Imperfecto)</option>
+</select>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="space-y-1">
+<div class="text-[10px] uppercase font-bold text-on-surface-variant">Valuación Estimada</div>
+<div class="text-3xl font-headline font-black" id="estimated-price">$8,492.00</div>
+</div>
+<button class="bg-tertiary-container text-on-tertiary-container px-6 py-3 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity rounded">
+                                Obtener Informe Full
+                            </button>
+</div>
+<div class="flex items-center gap-2 text-[9px] text-on-surface-variant uppercase font-medium">
+<span class="material-symbols-outlined text-xs">verified</span> Datos actualizados hace 4 minutos
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Architecture Section -->
+<section class="bg-surface-container-low py-24 px-8 lg:px-24">
+<div class="max-w-7xl mx-auto space-y-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-4">
+<h2 class="font-headline text-3xl lg:text-4xl font-extrabold tracking-tighter">Arquitectura de Datos: Las 4Cs &amp; Morfología</h2>
+<p class="text-on-surface-variant max-w-xl">Desglose de variables críticas procesadas por nuestro modelo XGBoost para determinar el valor intrínseco institucional.</p>
+</div>
+<div class="flex gap-4">
+<img alt="GIA Logo" class="h-8 grayscale opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPu9-dfTJ_MSmuMzAI5F45hKrZzaTREBGoOX3BBcjlHOALMPEGhSfvyJTxUWIvmSiIraZfJnxyqcKAu_KLGk0YnwFYKVS3zd1ujRPxsrw9zGp9OjX1plEsyiGOSmQCGDCCVWii4PcQm6Fy6NkylXKZLGEKgSnHSd_AzP869UtcgcMvEFN9rbzW5tIwHErJ82WHnLWJhDspOG_HUy5zgDYdTQljIIYhgxkC8cVgI1w7fcNulQnOkLQxkik220l1QQtRNPJ6GDeHIEqD"/>
+<img alt="IGI Logo" class="h-8 grayscale opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl8UdnSOuGDVoeAb4xKCe2bz_QB4iwyk7_ZnrPEfaveLqUd50rYUF2QLdSep6Vfa6xxmFVuXdym6eVig8yEgVm3WXjhtx7Nwp7mAxy7sIFGJed7DAIwIdGVTPCwZNIGQ8uvGLKzEhaZdVpbiYaC02IITf17mtAud_xTai1t3UWo0zS3RwuJatFwvb_bbIWkivnrFZZ-1WICD3GiYye_FvwnrxzSQrOnFJHu8CfE59KmB-5fN08cGWG0zbo7vn2LUv4uhMtbSkakEC7"/>
+</div>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-1">
+<!-- Cut Card -->
+<div class="bg-surface-container-lowest p-8 border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary text-3xl mb-6" data-icon="diamond" data-weight="fill">diamond</span>
+<h4 class="font-headline font-bold text-lg mb-2 uppercase">Cut (Talla)</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-6">Variable de criticidad máxima. Afecta la refracción lumínica en un ratio de 1:4 vs Claridad.</p>
+<div class="inline-block bg-primary text-on-primary text-[10px] px-2 py-1 font-bold uppercase tracking-tighter">Impacto: Crítico</div>
+</div>
+<!-- Carat Card -->
+<div class="bg-surface-container-lowest p-8">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl mb-6" data-icon="scale">scale</span>
+<h4 class="font-headline font-bold text-lg mb-2 uppercase">Carat (Peso)</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-6">Elasticidad no lineal. El incremento de valor se acelera exponencialmente tras el umbral de 1.0ct.</p>
+<div class="text-[10px] text-on-surface font-bold uppercase tracking-tighter">Elasticidad: 1.94</div>
+</div>
+<!-- Color Card -->
+<div class="bg-surface-container-lowest p-8">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl mb-6" data-icon="palette">palette</span>
+<h4 class="font-headline font-bold text-lg mb-2 uppercase">Color</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-6">Escala D-Z procesada mediante vectores de reflectancia. Premium asignado a incoloros.</p>
+<div class="text-[10px] text-on-surface font-bold uppercase tracking-tighter">Categoría: Espectral</div>
+</div>
+<!-- Clarity Card -->
+<div class="bg-surface-container-lowest p-8">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl mb-6" data-icon="microscope">magnification_small</span>
+<h4 class="font-headline font-bold text-lg mb-2 uppercase">Clarity</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-6">Mapeo de inclusiones microscópicas mediante visión artificial y ground truth histórico.</p>
+<div class="text-[10px] text-on-surface font-bold uppercase tracking-tighter">Precisión: IF-SI2</div>
+</div>
+</div>
+<!-- Technical Morphology Sub-grid -->
+<div class="bg-surface p-10 rounded border border-outline-variant/20 relative">
+<div class="absolute inset-0 micro-grid pointer-events-none"></div>
+<div class="relative z-10 grid lg:grid-cols-3 gap-12">
+<div class="space-y-4">
+<h5 class="text-[11px] uppercase tracking-[0.2em] font-bold text-on-surface-variant">Morfología Dimensiva</h5>
+<div class="space-y-3">
+<div class="flex justify-between items-center border-b border-outline-variant/20 pb-2">
+<span class="text-sm">X / Y / Z Dimensions</span>
+<span class="font-mono text-sm font-bold">Vector 3D</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant/20 pb-2">
+<span class="text-sm">Depth Percentage</span>
+<span class="font-mono text-sm font-bold">43% - 79%</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant/20 pb-2">
+<span class="text-sm">Table Percentage</span>
+<span class="font-mono text-sm font-bold">43% - 95%</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2 flex items-center justify-center">
+<div class="relative group">
+<img class="w-full max-w-lg grayscale rounded-lg opacity-40 group-hover:opacity-60 transition-opacity" data-alt="Technical blueprint style drawing of a brilliant cut diamond showing table, crown, girdle, pavilion and depth ratios with measurement lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBVmcYHJ4Tlcpxsf6X2i6pIUP0Hf7VOuwMKEFs2_6upG8MweXjhpwccolrh3TIzEDIl2eFuwp9Tniw7w8uxMOuk-CRq2QBHs8KBhI6E5gV3A5WDEkkBhB53Wi2bCgmuBr_Kb0Qmwn9oOkWma5Bw4-KC7UEkYstfhq_VeOAsJ-nNuRtHf9TELa5Ojt9gEpt-AAJrkKzU9AYwgujrV8KmrcFedkRDz8Qhp_VO4Y8LYCUzetYVgs4KsJUto5aElU5gnXhqffxRId_sBrF"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-primary/90 text-on-primary px-4 py-2 text-[10px] font-bold uppercase tracking-widest shadow-xl">Análisis Geométrico Activo</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- XGBoost Superiority Section -->
+<section class="py-24 px-8 lg:px-24 bg-surface">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+<div class="space-y-8">
+<h2 class="font-headline text-4xl lg:text-5xl font-extrabold tracking-tighter leading-tight">Superioridad XGBoost &amp; Ground Truth</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                        A diferencia de los modelos lineales tradicionales, Gemo utiliza <span class="text-on-surface font-semibold underline underline-offset-4">Ensemble Learning</span>. Procesamos 53,940 registros verificados para capturar interacciones complejas entre variables que los tasadores humanos y modelos simples ignoran.
+                    </p>
+<div class="space-y-6">
+<div class="p-6 bg-surface-container-low border-l-4 border-error/40 flex justify-between items-center">
+<div class="space-y-1">
+<div class="text-[10px] uppercase font-bold text-on-surface-variant">Regresión Lineal Simple</div>
+<div class="text-xl font-headline font-bold">RMSE 1383.85</div>
+</div>
+<span class="material-symbols-outlined text-error" data-icon="priority_high">priority_high</span>
+</div>
+<div class="p-6 bg-tertiary-container text-on-tertiary-container border-l-4 border-on-tertiary-container flex justify-between items-center">
+<div class="space-y-1">
+<div class="text-[10px] uppercase font-bold text-on-tertiary-container/70">Gemo XGBoost Framework</div>
+<div class="text-xl font-headline font-bold">RMSE 548.34</div>
+</div>
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="check_circle" data-weight="fill">check_circle</span>
+</div>
+</div>
+<div class="pt-6">
+<button class="flex items-center gap-4 text-primary font-bold uppercase text-xs tracking-[0.2em] group">
+<span>Leer Whitepaper sobre Ground Truth</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Visualization Mockup -->
+<div class="bg-surface-container-lowest p-10 rounded shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center mb-10">
+<div class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Performance: Actual vs Predicted</div>
+<div class="text-[10px] uppercase font-bold tracking-widest bg-surface-container-highest px-3 py-1 rounded">R²: 0.982</div>
+</div>
+<div class="h-80 w-full relative">
+<!-- Scatter Plot Representation -->
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-on-surface/20"></div>
+<div class="absolute top-0 left-0 w-[1px] h-full bg-on-surface/20"></div>
+<!-- 45 Degree Line -->
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-on-tertiary-container/40 origin-bottom-left -rotate-[45deg] border-dashed border-t"></div>
+<!-- Data Points Mockup -->
+<div class="absolute bottom-[20%] left-[20%] w-1.5 h-1.5 rounded-full bg-primary/20"></div>
+<div class="absolute bottom-[40%] left-[41%] w-1.5 h-1.5 rounded-full bg-primary/20"></div>
+<div class="absolute bottom-[60%] left-[58%] w-1.5 h-1.5 rounded-full bg-primary/20"></div>
+<div class="absolute bottom-[80%] left-[82%] w-1.5 h-1.5 rounded-full bg-primary/20"></div>
+<div class="absolute bottom-[30%] left-[32%] w-1.5 h-1.5 rounded-full bg-primary/20"></div>
+<div class="absolute bottom-[10%] left-[12%] w-1.5 h-1.5 rounded-full bg-primary/20"></div>
+<div class="absolute bottom-[50%] left-[48%] w-1.5 h-1.5 rounded-full bg-primary/30"></div>
+<div class="absolute bottom-[70%] left-[73%] w-1.5 h-1.5 rounded-full bg-primary/20"></div>
+<div class="absolute bottom-[90%] left-[89%] w-1.5 h-1.5 rounded-full bg-primary/20"></div>
+<div class="absolute bottom-[-24px] left-1/2 -translate-x-1/2 text-[9px] uppercase font-bold text-on-surface-variant">Actual Market Price ($)</div>
+<div class="absolute left-[-48px] top-1/2 -translate-y-1/2 -rotate-90 text-[9px] uppercase font-bold text-on-surface-variant">Predicted Price ($)</div>
+</div>
+<p class="mt-12 text-[10px] text-on-surface-variant text-center italic">Alineación del 98.2% validada por auditoría externa mediante set de prueba (10,788 registros).</p>
+</div>
+</div>
+</section>
+<!-- Institutional Trust Section -->
+<section class="bg-primary-container text-on-primary-container py-24 px-8 lg:px-24">
+<div class="max-w-4xl mx-auto space-y-16">
+<div class="text-center space-y-4">
+<h2 class="font-headline text-4xl font-extrabold tracking-tight">Compliance &amp; Ejecución Institucional</h2>
+<p class="text-on-primary-container/70 max-w-xl mx-auto">Protocolos de seguridad de grado bancario y certificaciones internacionales para la máxima transparencia en su inversión.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="bg-white/5 p-8 border border-white/10 rounded">
+<span class="material-symbols-outlined text-3xl mb-4" data-icon="lock" data-weight="fill">lock</span>
+<h4 class="font-headline font-bold text-lg mb-2">GDPR &amp; KYC Protocols</h4>
+<p class="text-sm opacity-70 leading-relaxed mb-6">Todos los inversores deben completar el proceso de verificación KYC según normativas de la UE. Encriptación AES-256 para datos sensibles.</p>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+<span class="text-[10px] uppercase font-bold tracking-widest">Auditoría 2024: Approved</span>
+</div>
+</div>
+<div class="bg-white/5 p-8 border border-white/10 rounded">
+<span class="material-symbols-outlined text-3xl mb-4" data-icon="verified_user" data-weight="fill">verified_user</span>
+<h4 class="font-headline font-bold text-lg mb-2">Certificación Dual</h4>
+<p class="text-sm opacity-70 leading-relaxed mb-6">Gemo solo procesa activos con certificación física GIA (Gemological Institute of America) o IGI (International Gemological Institute).</p>
+<div class="flex gap-4 grayscale brightness-200 opacity-60">
+<img alt="GIA Certification" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3QZvDBRB-A6MUpCUPuzlrGf_ywvGqh0BLwaWKx4a-t5xAlWD4GDLYSjRNjib6pK8gQFxq4ngxu90qtl8QeyavhwauBclFdEM8xGAK9hlkyQcTbNC2QyJS-3fPFojlP2C_KXZgVhP1RxxelkT0zy83d5afYd-2ryC4ajKU1_t-HX_2GdQfYRoHIQhm0Hc0-LERhVyeI99cj6lGhKna2I0GFu1Ku7sydCxNO0w3RK7XyautEEXcL3z3vKIjO4C8DMN0uYgpaFGV95Qe"/>
+<img alt="IGI Certification" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA53bpWwE12oHke7c6-G4gPDoK-ZTl3rEblZQKg8g4S7JKoVDcf46lV9NqlhErKGkd4UckU5menNnTutVcKaF9dBRgzV-RzLBj6iiPgtbnXUTu0ZjvpRM4SQPdDoPJlnbszFXEiotkVblJBbKiwR2V_JXYcPGl3wVj3maTgQerq2pDnEdGgNoxTjX8zSx-xC5OFo3LZex9VnFp_jjnplMQhiALXu7MRvVYsemt6qZ3qZ1iwMZx9MdyT5pPO8-rgXkmyJIZBamqXhIDf"/>
+</div>
+</div>
+</div>
+<!-- Conversion Form -->
+<div class="bg-surface-container-lowest text-on-surface p-10 rounded shadow-2xl relative overflow-hidden">
+<div class="grid lg:grid-cols-2 gap-12">
+<div class="space-y-6">
+<h3 class="font-headline font-extrabold text-2xl tracking-tighter">Acceso Directo al Motor Predictivo</h3>
+<p class="text-sm text-on-surface-variant">Seleccione su perfil para recibir el informe de predicción 2026 y alertas de volatilidad en tiempo real.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<input checked="" class="text-primary focus:ring-primary h-4 w-4" id="institutional" name="profile" type="radio"/>
+<label class="text-sm font-bold uppercase tracking-tight" for="institutional">Inversor Institucional</label>
+</div>
+<div class="flex items-center gap-3">
+<input class="text-primary focus:ring-primary h-4 w-4" id="retail" name="profile" type="radio"/>
+<label class="text-sm font-bold uppercase tracking-tight" for="retail">Comprador Minorista</label>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary p-4 text-sm rounded-sm" placeholder="Email corporativo (@company.com)" type="email"/>
+<button class="w-full bg-primary text-on-primary py-4 font-headline font-bold uppercase tracking-widest text-sm hover:opacity-90 transition-opacity rounded-sm">
+                                Registrarme para Alertas
+                            </button>
+<button class="w-full border border-outline-variant py-4 font-headline font-bold uppercase tracking-widest text-sm hover:bg-surface-container-low transition-colors rounded-sm">
+                                Descargar Predictor 2026 (PDF)
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-12 py-10">
+<div class="text-lg font-bold text-slate-900 dark:text-slate-50 font-headline uppercase tracking-tighter mb-6 md:mb-0">Gemo</div>
+<div class="flex flex-wrap justify-center gap-8 mb-6 md:mb-0">
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline underline-offset-4 transition-opacity" href="#">GDPR Compliance</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline underline-offset-4 transition-opacity" href="#">KYC Policy</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline underline-offset-4 transition-opacity" href="#">2026 Prediction Report</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline underline-offset-4 transition-opacity" href="#">Real-Time Alerts</a>
+</div>
+<div class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium text-slate-500 dark:text-slate-400 text-center md:text-right">
+                © 2024 Institutional Gemological Exchange. All Rights Reserved. GIA &amp; IGI Certified.
+            </div>
+</div>
+</footer>
+<!-- Certification Anchor (Fixed Requirement) -->
+<div class="fixed bottom-0 left-0 w-full z-[100] bg-surface-variant/95 backdrop-blur-md px-8 py-2 border-t border-outline-variant/30 flex justify-between items-center">
+<div class="flex gap-6 items-center">
+<span class="text-[9px] uppercase font-bold tracking-widest text-on-surface-variant">Auth Compliance:</span>
+<img alt="GIA Compliance" class="h-3 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKYu5awiapYRb-0gdcrwxmtfWZ83ycl3xQUpRQYvpoL2zC7DMzTOoXfpph9pmBC7vX-PH-Dq9v6Qxzqoz5DauAsZ1xVw04WKR4WRTGjHT8jffKew4fmU4SR_4bXQfQbdKroXOg9-g25CG12mKmqIs3ZzUFlqvhx7O_FuThDDQVpARqglv5SFj-50kCDiu74CG-jds_qejr78C45tpG7fuQuEVnCVY8Jl4Juc38LaE4eroAObXNSjUw6OrTwO1LR8oNZw7pJ5_RIwn0"/>
+<img alt="IGI Compliance" class="h-3 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcWImcWu1owZhLW4pDwazp4wNv1t4VbIsbVmkZKga39-gnAFBX1bdgA3xU44-idGrLcXa49w-mKb-tLNrQYkSD6senAb1szn6N0reyIMwiCY9qvOa0UonrZMVdSAi1zTspxRAjd1I_1zPBtlXGbVBYDdF_GIYU3H70l13o25lZ8RTuU9dGfKNg-H32ZLx5yw8ADtqlnKoM4L1SfDeL-bvVCV8CrPLG_rjql6szQ505BWlCQQSdK4WVVu8bHEAbjnKMA6w0FxZTLtoy"/>
+</div>
+<div class="text-[9px] uppercase font-medium text-on-surface-variant italic">
+            Certificado de Autenticidad #G982-129. Validado 2024.
+        </div>
+</div>
+<!-- Modals -->
+<div id="modal-carat" class="hidden fixed inset-0 z-[1000] flex items-center justify-center p-4">
+  <div class="absolute inset-0 bg-surface-container-highest/80 backdrop-blur-sm" onclick="document.getElementById('modal-carat').classList.add('hidden')"></div>
+  <div class="relative bg-surface-container-lowest max-w-lg w-full rounded shadow-2xl border border-outline-variant/30 p-8 space-y-6 max-h-[90vh] overflow-y-auto">
+    <div class="flex justify-between items-start">
+      <h3 class="font-headline font-extrabold text-xl">Tamaño de quilate</h3>
+      <button class="text-on-surface-variant hover:text-primary transition-colors" onclick="document.getElementById('modal-carat').classList.add('hidden')">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="text-sm text-on-surface-variant space-y-4 leading-relaxed font-body">
+      <p>El “Carat” (peso) es la unidad de medida de los diamantes. El peso de un diamante se mide en quilates, cuya abreviatura es ct. El quilate métrico, aprobado en 1907, corresponde a 0.20 gr.</p>
+      <p>Los diamantes se comercializan a precio por quilate. Este precio varía exponencialmente con el peso de la gema. Es fácil comprender por qué son más caros los diamantes a medida que aumenta su tamaño: la naturaleza proporciona muchas menos piedras grandes. Por ejemplo un diamante de 1.5 quilates es tres veces el peso de un diamante de 0.5 quilates, pero su precio puede ser entre cinco y siete veces superior.</p>
+      <div class="bg-surface p-4 rounded text-xs space-y-2 border border-outline-variant/20">
+        <p class="font-bold text-on-surface uppercase tracking-widest text-[10px]">No confundir con metales:</p>
+        <p>Para el oro, cuanto mayor sea el quilataje, mayor será el contenido de oro puro de las joyas. El oro de 18 quilates contiene 750 milésimas de oro puro y 250 milésimas de otras aleaciones. El oro de 9 quilates, contiene 375 milésimas de oro puro y 625 milésimas de otras aleaciones.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-clarity" class="hidden fixed inset-0 z-[1000] flex items-center justify-center p-4">
+  <div class="absolute inset-0 bg-surface-container-highest/80 backdrop-blur-sm" onclick="document.getElementById('modal-clarity').classList.add('hidden')"></div>
+  <div class="relative bg-surface-container-lowest max-w-2xl w-full rounded shadow-2xl border border-outline-variant/30 p-8 space-y-6 max-h-[90vh] overflow-y-auto">
+    <div class="flex justify-between items-start">
+      <h3 class="font-headline font-extrabold text-xl">Calidades Técnicas: Pureza (Clarity)</h3>
+      <button class="text-on-surface-variant hover:text-primary transition-colors" onclick="document.getElementById('modal-clarity').classList.add('hidden')">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="text-sm text-on-surface-variant space-y-6 leading-relaxed font-body">
+      <div class="border-l-2 border-primary pl-4">
+        <h4 class="font-bold text-on-surface uppercase text-xs tracking-widest mb-1">1) IF Internally Flawless o Sin inclusiones internas</h4>
+        <p class="text-xs">No presenta inclusiones internas visibles para un experto con una lupa de 10 aumentos, pero puede haber algunas minúsculas irregularidades externas en el acabado.</p>
+      </div>
+      <div class="border-l-2 border-outline-variant/40 pl-4">
+        <h4 class="font-bold text-on-surface uppercase text-xs tracking-widest mb-1">2) Very Very Small Inclusions (VVS)</h4>
+        <ul class="list-disc pl-4 space-y-1 mt-1 text-xs">
+          <li><strong>Grado 1:</strong> Una minúscula inclusión visible únicamente para un experto con una lupa de 10 aumentos.</li>
+          <li><strong>Grado 2:</strong> Varias inclusiones minúsculas visibles únicamente para un experto con una lupa de 10 aumentos.</li>
+        </ul>
+      </div>
+      <div class="border-l-2 border-outline-variant/40 pl-4">
+        <h4 class="font-bold text-on-surface uppercase text-xs tracking-widest mb-1">3) Very Small Inclusions (VS)</h4>
+        <ul class="list-disc pl-4 space-y-1 mt-1 text-xs">
+          <li><strong>Grado 1:</strong> Inclusión muy pequeña visible con una lupa de 10 aumentos.</li>
+          <li><strong>Grado 2:</strong> Varias inclusiones muy pequeñas visibles con una lupa de 10 aumentos.</li>
+        </ul>
+      </div>
+      <div class="border-l-2 border-outline-variant/40 pl-4">
+        <h4 class="font-bold text-on-surface uppercase text-xs tracking-widest mb-1">4) Small Inclusions (SI)</h4>
+        <ul class="list-disc pl-4 space-y-1 mt-1 text-xs">
+          <li><strong>Grado 1:</strong> Inclusión pequeña visible con una lupa de 10 aumentos.</li>
+          <li><strong>Grado 2:</strong> Varias inclusiones pequeñas visibles con una lupa de 10 aumentos.</li>
+        </ul>
+      </div>
+      <div class="border-l-2 border-error/40 pl-4">
+        <h4 class="font-bold text-on-surface uppercase text-xs tracking-widest mb-1">5) Included 1 o Imperfecto</h4>
+        <ul class="list-disc pl-4 space-y-1 mt-1 text-xs">
+          <li><strong>Grado 1:</strong> Inclusión que resulta visible a simple vista.</li>
+          <li><strong>Grado 2:</strong> Numerosas inclusiones claramente visibles a simple vista que también disminuyen el brillo.</li>
+          <li><strong>Grado 3:</strong> Numerosas inclusiones claramente visibles a simple vista que disminuyen el brillo y comprometen la estructura del diamante, haciendo que pueda agrietarse o romperse más fácilmente.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const caratInput = document.getElementById('carat-input');
+    const caratDisplay = document.getElementById('carat-display');
+    const cutButtons = document.querySelectorAll('.cut-btn');
+    const claritySelect = document.getElementById('clarity-select');
+    const estimatedPrice = document.getElementById('estimated-price');
+    
+    let currentCut = 'Ideal';
+    
+    const cutMultipliers = { 'Ideal': 1.25, 'Premium': 1.10, 'Good': 0.95, 'Fair': 0.80 };
+    const clarityMultipliers = { 'IF': 1.8, 'VVS': 1.45, 'VS': 1.20, 'SI': 0.95, 'I': 0.65 }; // Stronger clarity diff multipliers
+    
+    function calculatePrice() {
+        const carat = parseFloat(caratInput.value);
+        const cutMult = cutMultipliers[currentCut];
+        const clarityMult = clarityMultipliers[claritySelect.value];
+        
+        // El precio base ajustable
+        const basePrice = 4200; 
+        
+        // Elasticidad = carat ^ 1.94 (basado en el UI de Arquitectura de datos)
+        let price = basePrice * Math.pow(carat, 1.94) * cutMult * clarityMult;
+        
+        estimatedPrice.innerText = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
+    }
+    
+    // Listeners
+    caratInput.addEventListener('input', (e) => {
+        caratDisplay.innerText = Number(e.target.value).toFixed(2) + ' ct';
+        calculatePrice();
+    });
+    
+    cutButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            cutButtons.forEach(b => {
+                b.classList.remove('border-primary', 'bg-primary', 'text-on-primary');
+                b.classList.add('border-outline-variant', 'text-on-surface');
+            });
+            e.target.classList.remove('border-outline-variant', 'text-on-surface');
+            e.target.classList.add('border-primary', 'bg-primary', 'text-on-primary');
+            currentCut = e.target.getAttribute('data-cut');
+            calculatePrice();
+        });
+    });
+    
+    claritySelect.addEventListener('change', calculatePrice);
+    
+    // Init state: Setting a realistic state for the default $8,492 value isn't necessary now that it's fully dynamic.
+    calculatePrice();
+});
+</script>
+</body></html>

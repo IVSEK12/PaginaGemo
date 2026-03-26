@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gemo | Investment Strategy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-tint": "#525f71", "surface-container-low": "#f2f4f6", "on-secondary-fixed-variant": "#3a485b", "secondary-fixed-dim": "#b9c7df", "tertiary-container": "#002020", "primary-fixed-dim": "#bac8dc", "outline": "#74777d", "on-primary": "#ffffff", "tertiary-fixed-dim": "#6fd7d6", "error": "#ba1a1a", "on-secondary-fixed": "#0d1c2e", "surface-variant": "#e0e3e5", "primary-fixed": "#d6e4f9", "on-primary-fixed-variant": "#3a4859", "on-tertiary": "#ffffff", "primary": "#000000", "on-tertiary-fixed": "#002020", "tertiary-fixed": "#8cf3f3", "inverse-surface": "#2d3133", "on-surface": "#191c1e", "error-container": "#ffdad6", "background": "#f7f9fb", "surface": "#f7f9fb", "tertiary": "#000000", "secondary-fixed": "#d5e3fc", "on-secondary-container": "#57657a", "surface-container-lowest": "#ffffff", "surface-container-high": "#e6e8ea", "on-primary-fixed": "#0f1c2c", "secondary": "#515f74", "secondary-container": "#d5e3fc", "surface-dim": "#d8dadc", "surface-container": "#eceef0", "on-background": "#191c1e", "on-error": "#ffffff", "primary-container": "#0f1c2c", "on-secondary": "#ffffff", "on-tertiary-container": "#189292", "on-surface-variant": "#44474c", "inverse-primary": "#bac8dc", "surface-container-highest": "#e0e3e5", "inverse-on-surface": "#eff1f3", "on-tertiary-fixed-variant": "#004f4f", "on-primary-container": "#778598", "outline-variant": "#c4c6cc", "surface-bright": "#f7f9fb", "on-error-container": "#93000a" }, fontFamily: { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] }, borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"} } } }
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+.text-gradient { background: linear-gradient(to right, #000000, #0f1c2c); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container">
+
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/15 dark:border-slate-800/15 shadow-sm">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-none">
+<div class="text-xl font-black text-slate-900 dark:text-slate-50 tracking-tighter uppercase font-headline">Gemo</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="index.html">Platform Overview</a>
+<a class="text-slate-900 border-b-2 border-slate-900 pb-1 font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="investment-strategy.html">Investment Strategy</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="institutional-vault.html">Institutional Vault</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 text-sm font-['Manrope'] font-bold tracking-tight uppercase transition-all hover:bg-slate-100 dark:hover:bg-slate-800 rounded">Login</button>
+<button class="bg-primary text-on-primary px-6 py-2 text-sm font-['Manrope'] font-bold tracking-tight uppercase transition-transform scale-95 active:opacity-80 rounded shadow-sm">Register</button>
+</div>
+</div>
+</nav>
+
+<main class="pt-32 pb-24 px-8 lg:px-24 max-w-7xl mx-auto min-h-screen">
+  <div class="space-y-6 mb-16 lg:mb-24 mt-12">
+    <div class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest border border-outline-variant/20">
+        Estrategia Macro [✓ Creado por Frontend]
+    </div>
+    <h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tighter leading-[1.1]">Protección Patrimonial <span class="text-gradient">Absoluta.</span></h1>
+    <p class="text-on-surface-variant text-lg lg:text-xl max-w-2xl leading-relaxed">Históricamente, los diamantes grado inversión han superado a la inflación global, ofreciendo un refugio de valor no correlacionado con mercados de renta variable tradicionales.</p>
+  </div>
+  
+  <div class="bg-surface-container-lowest p-10 rounded shadow-md border border-outline-variant/10">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+        <div>
+            <h3 class="font-headline font-bold text-2xl uppercase tracking-tighter text-on-surface">Rendimientos Acumulados</h3>
+            <p class="text-[11px] uppercase tracking-widest text-on-surface-variant mt-1">Simulación inyectada por el Agente Backend</p>
+        </div>
+        <div class="bg-surface-container-high px-4 py-2 rounded text-xs font-bold uppercase tracking-widest font-mono mt-4 md:mt-0">
+            CAGR 5 YR: 11.2%
+        </div>
+    </div>
+    
+    <!-- Contenedor del Gráfico Dinámico -->
+    <div id="chart-container" class="flex items-end gap-2 md:gap-6 h-80 border-b-2 border-l-2 border-outline-variant/20 p-2 md:p-6 relative">
+        <div class="absolute -left-12 bottom-4 text-[9px] font-bold text-on-surface-variant">0%</div>
+        <div class="absolute -left-12 bottom-1/2 text-[9px] font-bold text-on-surface-variant">10%</div>
+        <div class="absolute -left-12 top-4 text-[9px] font-bold text-on-surface-variant">20%</div>
+    </div>
+    <div id="chart-labels" class="flex justify-between px-2 md:px-6 mt-4 text-[10px] font-bold text-on-surface-variant"></div>
+  </div>
+</main>
+
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-12 py-10">
+<div class="text-lg font-bold text-slate-900 dark:text-slate-50 font-headline uppercase tracking-tighter mb-6 md:mb-0">Gemo</div>
+<div class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium text-slate-500 dark:text-slate-400">
+    © 2024 Institutional Gemological Exchange. All Rights Reserved.
+</div>
+</div>
+</footer>
+
+<script>
+// [AGENTE BACKEND]: Lógica de inyección de datos
+document.addEventListener('DOMContentLoaded', () => {
+    // Array de datos falsos de respuesta API
+    const historicalData = [
+        { year: '2020', return: 5.4, label: 'Crisis' },
+        { year: '2021', return: 12.1, label: 'Alza' },
+        { year: '2022', return: 18.3, label: 'Pico Demanda' },
+        { year: '2023', return: 9.8, label: 'Estabilización' },
+        { year: '2024', return: 14.5, label: 'Consolidación' }
+    ];
+    
+    const container = document.getElementById('chart-container');
+    const labels = document.getElementById('chart-labels');
+    
+    // Inyectar el DOM dinámico
+    historicalData.forEach((item, index) => {
+        // La altura es proporcional a un máximo de 20%
+        const normalizedHeight = (item.return / 20) * 100; 
+        
+        // Contenedor de la barra
+        const barWrapper = document.createElement('div');
+        barWrapper.className = 'w-full flex-1 flex flex-col items-center justify-end relative group h-full';
+        
+        // Tooltip hover
+        const tooltip = document.createElement('div');
+        tooltip.className = 'opacity-0 group-hover:opacity-100 absolute -top-12 bg-on-surface text-surface text-[12px] font-bold px-3 py-1.5 rounded-sm font-mono transition-opacity whitespace-nowrap z-10 pointer-events-none shadow-lg';
+        tooltip.innerHTML = `+${item.return}% <span class="text-[9px] font-sans opacity-70 block">${item.label}</span>`;
+        
+        // La barra visual con transición de entrada (ejecución animada)
+        const bar = document.createElement('div');
+        bar.className = 'w-full max-w-[60px] bg-primary hover:bg-tertiary-container transition-all duration-1000 ease-out rounded-t-sm';
+        bar.style.height = `0%`; // Inicia en 0 para animación
+        
+        barWrapper.appendChild(tooltip);
+        barWrapper.appendChild(bar);
+        container.appendChild(barWrapper);
+        
+        // Label eje X
+        const label = document.createElement('div');
+        label.className = 'flex-1 text-center w-full max-w-[60px] mx-auto';
+        label.innerText = item.year;
+        labels.appendChild(label);
+
+        // Disparar animación secuencial
+        setTimeout(() => {
+            bar.style.height = `${normalizedHeight}%`;
+        }, 100 * (index + 1));
+    });
+});
+</script>
+</body>
+</html>

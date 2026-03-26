@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gemo | Institutional Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface": "#f7f9fb", "on-surface": "#191c1e", "on-surface-variant": "#44474c", "surface-container": "#eceef0", "surface-container-low": "#f2f4f6", "surface-container-highest": "#e0e3e5", "surface-container-lowest": "#ffffff", "primary": "#000000", "on-primary": "#ffffff", "tertiary-container": "#002020", "on-tertiary-container": "#189292", "error": "#ba1a1a", "outline-variant": "#c4c6cc" }, fontFamily: { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] }, borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"} } } }
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48; }
+.vault-bg { background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px; opacity: 0.05; }
+</style>
+</head>
+<body class="bg-primary font-body text-surface selection:bg-surface-container">
+
+<nav class="fixed top-0 w-full z-50 bg-primary/95 backdrop-blur-md border-b border-surface-container/10">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-none">
+<div class="text-xl font-black text-surface tracking-tighter uppercase font-headline">Gemo</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-outline-variant hover:text-surface transition-colors font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="index.html">Platform Overview</a>
+<a class="text-outline-variant hover:text-surface transition-colors font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="investment-strategy.html">Investment Strategy</a>
+<a class="text-surface border-b-2 border-surface pb-1 font-['Manrope'] font-bold tracking-tight uppercase text-sm" href="institutional-vault.html">Institutional Vault</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 text-sm font-['Manrope'] border border-outline-variant text-surface font-bold tracking-tight uppercase transition-all hover:bg-surface hover:text-primary rounded">Login</button>
+</div>
+</div>
+</nav>
+
+<main class="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden pt-20">
+  <div class="absolute inset-0 vault-bg pointer-events-none"></div>
+  
+  <div class="relative z-10 text-center mb-10 space-y-4">
+      <div class="inline-flex items-center justify-center bg-surface-container-low text-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-[0.3em]">Nivel 4 Restringido</div>
+      <h1 class="font-headline text-4xl lg:text-5xl font-black uppercase tracking-tighter text-surface">Bóveda Institucional</h1>
+      <p class="text-outline-variant text-sm tracking-widest uppercase">[ Interfaz Frontend Integrada ]</p>
+  </div>
+
+  <div class="relative z-10 w-full max-w-md bg-surface text-on-surface p-12 rounded shadow-2xl">
+    
+    <!-- Formulatio Activo -->
+    <div id="auth-form" class="space-y-8">
+        <div class="flex items-start gap-4 pb-6 border-b border-outline-variant/30">
+            <span class="material-symbols-outlined text-4xl">vpn_key</span>
+            <div>
+                <h3 class="font-headline font-bold text-xl uppercase tracking-tighter">Validación GIA/IGI</h3>
+                <p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Conexión Segura Cifrada</p>
+            </div>
+        </div>
+
+        <div class="space-y-3">
+            <label class="text-[10px] font-bold uppercase tracking-widest">Client API Token</label>
+            <input id="vault-token" type="password" class="w-full border-none bg-surface-container-highest focus:ring-2 focus:ring-primary p-4 rounded-sm font-mono text-sm tracking-widest" placeholder="••••••••••••••••">
+            <p id="error-msg" class="text-error text-[10px] font-bold hidden uppercase mt-2">[ Backend Error: Token Inválido o vacío ]</p>
+        </div>
+
+        <button id="btn-submit" class="w-full bg-primary text-on-primary py-4 font-headline flex justify-center items-center gap-2 uppercase tracking-widest font-bold text-sm hover:opacity-90 rounded-sm hover:-translate-y-0.5 transition-transform">
+            <span class="material-symbols-outlined text-sm">lock_open</span>
+            Desbloquear Bóveda
+        </button>
+    </div>
+
+    <!-- Estado de Carga -->
+    <div id="auth-loading" class="hidden flex-col items-center justify-center py-12 space-y-6">
+        <span class="material-symbols-outlined text-primary text-5xl animate-spin">sync</span>
+        <div class="text-center space-y-1">
+            <h3 class="font-headline font-bold text-lg uppercase tracking-tighter">Desempaquetando...</h3>
+            <p class="text-[10px] text-on-surface-variant uppercase tracking-widest animate-pulse">[ Backend Procesando SHA-256 ]</p>
+        </div>
+    </div>
+
+    <!-- Acceso Concedido -->
+    <div id="auth-success" class="hidden flex-col items-center justify-center py-10 space-y-6 text-center">
+        <div class="h-20 w-20 bg-primary rounded-full flex items-center justify-center mb-2">
+            <span class="material-symbols-outlined text-surface text-4xl" data-icon="check" data-weight="fill">verified</span>
+        </div>
+        <div class="space-y-2">
+            <h3 class="font-headline font-extrabold text-2xl uppercase tracking-tighter text-tertiary-container">Acceso Concedido</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Sus diamantes registrados han sido validados exitosamente frente al registro madre IGI.</p>
+        </div>
+        <button onclick="location.reload()" class="mt-4 border border-outline-variant text-[10px] px-6 py-2 uppercase tracking-widest font-bold hover:bg-surface-container-low transition-colors rounded">
+            Cerrar Sesión
+        </button>
+    </div>
+  </div>
+</main>
+
+<script>
+// [AGENTE BACKEND]: Lógica de validación
+document.addEventListener('DOMContentLoaded', () => {
+    const btnSubmit = document.getElementById('btn-submit');
+    const inputToken = document.getElementById('vault-token');
+    const formSection = document.getElementById('auth-form');
+    const loadingSection = document.getElementById('auth-loading');
+    const successSection = document.getElementById('auth-success');
+    const errorMsg = document.getElementById('error-msg');
+    
+    btnSubmit.addEventListener('click', () => {
+        errorMsg.classList.add('hidden');
+        const token = inputToken.value.trim();
+        
+        // Regla: No puede estar vacío
+        if(token === '') {
+            errorMsg.classList.remove('hidden');
+            inputToken.classList.add('ring-2', 'ring-error');
+            setTimeout(() => inputToken.classList.remove('ring-error'), 1000);
+            return;
+        }
+
+        // Backend simulado entra en acción
+        formSection.classList.add('hidden');
+        loadingSection.classList.remove('hidden');
+        loadingSection.classList.add('flex');
+        
+        // Simular red (Network Delay)
+        setTimeout(() => {
+            loadingSection.classList.add('hidden');
+            loadingSection.classList.remove('flex');
+            
+            successSection.classList.remove('hidden');
+            successSection.classList.add('flex');
+        }, 2000);
+    });
+});
+</script>
+</body>
+</html>
