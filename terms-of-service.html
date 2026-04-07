@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gemo | Términos de Servicio</title>
+<meta name="description" content="Términos y Condiciones de uso de la plataforma Gemo de valoración gemológica institucional. Conozca sus derechos y obligaciones como usuario de nuestra plataforma."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            colors: {
+                "surface": "#f7f9fb",
+                "on-surface": "#191c1e",
+                "on-surface-variant": "#44474c",
+                "surface-container": "#eceef0",
+                "surface-container-low": "#f2f4f6",
+                "surface-container-highest": "#e0e3e5",
+                "surface-container-lowest": "#ffffff",
+                "primary": "#000000",
+                "on-primary": "#ffffff",
+                "tertiary-container": "#002020",
+                "on-tertiary-container": "#189292",
+                "error": "#ba1a1a",
+                "outline-variant": "#c4c6cc"
+            },
+            fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"}
+        }
+    }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48; }
+.active-nav { border-bottom: 2px solid #000; padding-bottom: 2px; }
+.toc-link { transition: all 0.2s; border-left: 2px solid transparent; }
+.toc-link:hover { border-left-color: #189292; padding-left: 8px; color: #000; }
+.toc-link.active { border-left-color: #000; padding-left: 8px; font-weight: 700; }
+.legal-section { scroll-margin-top: 100px; }
+.accent-bar { width: 2rem; height: 2px; background: #189292; display: block; margin-bottom: 1.5rem; }
+</style>
+</head>
+<body class="bg-[#F7F9FB] font-body text-on-surface antialiased">
+
+<!-- Navigation -->
+<nav class="sticky top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-outline-variant/30">
+    <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+        <a href="index.html" class="text-xl font-black text-primary tracking-tighter uppercase font-headline">Gemo</a>
+        <div class="hidden md:flex items-center gap-10">
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-headline font-bold tracking-tight uppercase text-[11px]" href="index.html">Descripción de la Plataforma</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-headline font-bold tracking-tight uppercase text-[11px]" href="investment-strategy.html">Estrategia de Inversión</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-headline font-bold tracking-tight uppercase text-[11px]" href="institutional-vault.html">Bóveda Institucional</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <button class="text-xs font-headline font-bold uppercase tracking-tight hover:underline">Iniciar Sesión</button>
+            <button class="bg-primary text-on-primary px-6 py-2.5 text-xs font-headline font-bold tracking-tight uppercase rounded-sm hover:opacity-90">Registrarse</button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Header -->
+<header class="bg-[#0A121A] text-white py-20 px-8">
+    <div class="max-w-7xl mx-auto space-y-6">
+        <div class="text-[9px] font-bold uppercase tracking-[0.3em] text-[#189292]">Documentación Legal</div>
+        <h1 class="font-headline text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-none">Términos<br/>de Servicio</h1>
+        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
+            Por favor lea cuidadosamente este acuerdo antes de utilizar la plataforma Gemo. Al registrarse o acceder a nuestros servicios, usted acepta quedar vinculado por estos términos.
+        </p>
+        <div class="flex items-center gap-6 pt-4 border-t border-white/10">
+            <div class="text-[9px] uppercase tracking-widest text-white/40">
+                <span class="font-bold text-white/60">Versión:</span> 1.0
+            </div>
+            <div class="text-[9px] uppercase tracking-widest text-white/40">
+                <span class="font-bold text-white/60">Última actualización:</span> 7 de abril de 2025
+            </div>
+            <div class="text-[9px] uppercase tracking-widest text-white/40">
+                <span class="font-bold text-white/60">Vigencia:</span> Inmediata
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-8 py-16">
+    <div class="grid lg:grid-cols-12 gap-16">
+
+        <!-- Table of Contents (Sticky Sidebar) -->
+        <aside class="lg:col-span-3">
+            <div class="sticky top-28 space-y-2">
+                <div class="text-[9px] font-extrabold uppercase tracking-[0.3em] text-on-surface-variant mb-6">Índice</div>
+                <nav id="toc" class="space-y-1 text-xs text-on-surface-variant">
+                    <a href="#aceptacion" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">1. Aceptación de Términos</a>
+                    <a href="#servicios" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">2. Descripción de Servicios</a>
+                    <a href="#elegibilidad" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">3. Elegibilidad y Registro</a>
+                    <a href="#cuentas" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">4. Cuentas de Usuario</a>
+                    <a href="#uso-aceptable" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">5. Uso Aceptable</a>
+                    <a href="#propiedad-intelectual" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">6. Propiedad Intelectual</a>
+                    <a href="#inversiones" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">7. Naturaleza de las Inversiones</a>
+                    <a href="#riesgos" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">8. Divulgación de Riesgos</a>
+                    <a href="#kyc" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">9. KYC y Cumplimiento</a>
+                    <a href="#responsabilidad" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">10. Limitación de Responsabilidad</a>
+                    <a href="#rescision" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">11. Rescisión</a>
+                    <a href="#jurisdiccion" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">12. Ley Aplicable</a>
+                    <a href="#contacto-tos" class="toc-link block py-2 pl-3 text-[10px] uppercase tracking-wide font-semibold">13. Contacto</a>
+                </nav>
+                <div class="mt-8 pt-8 border-t border-outline-variant/50">
+                    <a href="privacy-policy.html" class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#189292] hover:underline">
+                        <span class="material-symbols-outlined text-base">shield</span>
+                        Política de Privacidad
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Legal Content -->
+        <article class="lg:col-span-9 space-y-16">
+
+            <!-- Section 1 -->
+            <section id="aceptacion" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">1. Aceptación de Términos</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>Al acceder o utilizar la plataforma Gemo — incluyendo el sitio web, las APIs, los servicios de valoración gemológica, la Bóveda Institucional y cualquier funcionalidad relacionada — usted acepta quedar vinculado legalmente por estos Términos de Servicio ("Términos"), nuestra Política de Privacidad y cualesquiera directrices adicionales publicadas en la plataforma.</p>
+                    <p>Si accede a los servicios en nombre de una empresa, organización o entidad jurídica, declara que tiene plena autoridad para vincular a dicha entidad a estos Términos, en cuyo caso "usted" se refiere tanto a la persona natural como a la entidad que representa.</p>
+                    <div class="bg-surface-container-low border border-outline-variant/40 p-6 rounded-sm mt-6">
+                        <p class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Importante</p>
+                        <p class="text-xs text-on-surface-variant">Si no está de acuerdo con alguna parte de estos Términos, le rogamos que no utilice la plataforma Gemo. El acceso continuado a los servicios constituye aceptación plena de todas las condiciones aquí establecidas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section id="servicios" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">2. Descripción de Servicios</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>Gemo es una plataforma de tecnología financiera y gemológica que ofrece los siguientes servicios principales:</p>
+                    <ul class="space-y-3 pl-4">
+                        <li class="flex gap-3"><span class="text-[#189292] font-bold mt-0.5">—</span><span><strong class="text-on-surface">Valoración Predictiva:</strong> Algoritmos de inteligencia artificial y aprendizaje automático (XGBoost / Gradient Boosting) para estimar el valor justo de mercado de diamantes certificados GIA/IGI, basados en las 4Cs y parámetros morfológicos.</span></li>
+                        <li class="flex gap-3"><span class="text-[#189292] font-bold mt-0.5">—</span><span><strong class="text-on-surface">Bóveda Institucional:</strong> Acceso a inventario de activos gemológicos de grado inversión, con respaldo físico auditado, custodia Tier-1 y documentación de certificación digital.</span></li>
+                        <li class="flex gap-3"><span class="text-[#189292] font-bold mt-0.5">—</span><span><strong class="text-on-surface">Estrategia de Inversión:</strong> Datos analíticos, gráficos de rendimiento histórico e indicadores de mercado para la toma de decisiones de inversión en activos gemológicos.</span></li>
+                        <li class="flex gap-3"><span class="text-[#189292] font-bold mt-0.5">—</span><span><strong class="text-on-surface">Informes Técnicos:</strong> Documentación gemológica detallada conforme a estándares GIA e IGI, incluyendo análisis de claridad, color, talla y quilataje.</span></li>
+                    </ul>
+                    <p>Gemo se reserva el derecho de modificar, suspender o discontinuar cualquier servicio, ya sea temporal o permanentemente, con o sin previo aviso, sin que ello genere responsabilidad alguna hacia usted.</p>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section id="elegibilidad" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">3. Elegibilidad y Registro</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>Para utilizar la plataforma Gemo usted debe cumplir con los siguientes requisitos de elegibilidad:</p>
+                    <div class="grid sm:grid-cols-2 gap-4 mt-4">
+                        <div class="bg-surface-container-low p-5 rounded-sm border border-outline-variant/30">
+                            <div class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Personas Físicas</div>
+                            <p class="text-xs text-on-surface-variant">Ser mayor de 18 años o la edad mínima legal en su jurisdicción para participar en actividades de inversión financiera.</p>
+                        </div>
+                        <div class="bg-surface-container-low p-5 rounded-sm border border-outline-variant/30">
+                            <div class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Entidades Institucionales</div>
+                            <p class="text-xs text-on-surface-variant">Disponer de la capacidad jurídica y financiera necesaria para comprometerse con inversiones en activos alternativos de alta gama.</p>
+                        </div>
+                        <div class="bg-surface-container-low p-5 rounded-sm border border-outline-variant/30">
+                            <div class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Cumplimiento Normativo</div>
+                            <p class="text-xs text-on-surface-variant">No estar incluido en ninguna lista de sanciones internacionales y cumplir con las regulaciones AML/KYC de su país de residencia.</p>
+                        </div>
+                        <div class="bg-surface-container-low p-5 rounded-sm border border-outline-variant/30">
+                            <div class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Jurisdicción</div>
+                            <p class="text-xs text-on-surface-variant">Residir en un país donde la inversión en activos gemológicos y los servicios de análisis financiero no estén prohibidos por ley.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section id="cuentas" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">4. Cuentas de Usuario</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>Al crear una cuenta en Gemo, usted acepta proporcionar información precisa, completa y actualizada. Es su exclusiva responsabilidad mantener la confidencialidad de sus credenciales de acceso (nombre de usuario, contraseña y tokens de API).</p>
+                    <p>Usted es plenamente responsable de todas las actividades realizadas bajo su cuenta, ya sea por usted mismo o por terceros que hayan accedido con sus credenciales. Gemo no será responsable de ninguna pérdida derivada del uso no autorizado de su cuenta si dicho acceso fue facilitado por negligencia en la custodia de sus credenciales.</p>
+                    <p>Usted se compromete a notificarnos inmediatamente a <strong class="text-on-surface">legal@gemo.ai</strong> ante cualquier uso no autorizado de su cuenta o cualquier otra violación de seguridad.</p>
+                </div>
+            </section>
+
+            <!-- Section 5 -->
+            <section id="uso-aceptable" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">5. Uso Aceptable</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>Usted se compromete a utilizar la plataforma únicamente para fines legales y en concordancia con estos Términos. Específicamente, queda prohibido:</p>
+                    <ul class="space-y-2 pl-4 mt-4">
+                        <li class="flex gap-3 text-xs"><span class="text-error font-bold mt-0.5">✕</span><span>Manipular, alterar o falsificar datos de valoración gemológica con el fin de obtener valoraciones fraudulentas.</span></li>
+                        <li class="flex gap-3 text-xs"><span class="text-error font-bold mt-0.5">✕</span><span>Utilizar técnicas de scraping, bots automatizados o cualquier medio técnico para extraer datos masivos de la plataforma sin autorización expresa.</span></li>
+                        <li class="flex gap-3 text-xs"><span class="text-error font-bold mt-0.5">✕</span><span>Vender, sublicenciar o redistribuir los servicios, datos o informes de Gemo a terceros sin acuerdo previo por escrito.</span></li>
+                        <li class="flex gap-3 text-xs"><span class="text-error font-bold mt-0.5">✕</span><span>Intentar acceder a sistemas, cuentas o áreas restringidas de la plataforma mediante ingeniería inversa, fuerza bruta u otros métodos no autorizados.</span></li>
+                        <li class="flex gap-3 text-xs"><span class="text-error font-bold mt-0.5">✕</span><span>Utilizar la plataforma para blanqueo de capitales, financiación del terrorismo o cualquier actividad ilícita.</span></li>
+                        <li class="flex gap-3 text-xs"><span class="text-error font-bold mt-0.5">✕</span><span>Publicar, transmitir o almacenar contenido difamatorio, obsceno, fraudulento o que viole derechos de terceros.</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 6 -->
+            <section id="propiedad-intelectual" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">6. Propiedad Intelectual</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>La plataforma Gemo, incluyendo pero no limitándose a su software, algoritmos de valoración, modelos de aprendizaje automático, bases de datos, diseño visual, marca, logotipos y toda la documentación asociada, son propiedad exclusiva de Gemo o de sus licenciantes, y están protegidos por las leyes de propiedad intelectual aplicables.</p>
+                    <p>Se le concede una licencia limitada, no exclusiva, no transferible y revocable para acceder y utilizar los servicios únicamente para sus fines personales o empresariales legítimos, conforme a estos Términos. Esta licencia no incluye el derecho a copiar, modificar, distribuir, vender o explotar comercialmente ninguna parte de la plataforma.</p>
+                </div>
+            </section>
+
+            <!-- Section 7 -->
+            <section id="inversiones" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">7. Naturaleza de las Inversiones</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>Gemo proporciona herramientas analíticas y acceso a activos gemológicos para inversores cualificados. Toda la información proporcionada tiene carácter meramente informativo y no constituye asesoramiento de inversión, fiscal ni legal.</p>
+                    <div class="bg-[#0A121A] text-white p-6 rounded-sm mt-6 space-y-3">
+                        <div class="text-[9px] font-bold uppercase tracking-widest text-[#189292]">Declaración de No Asesoramiento</div>
+                        <p class="text-xs text-white/70 leading-relaxed">Las valoraciones predictivas generadas por los modelos de IA de Gemo son estimaciones estadísticas basadas en datos históricos de mercado. No garantizan rentabilidades futuras ni reflejan el valor de liquidación real de ningún activo. Toda decisión de inversión debe tomarse tras consulta con asesores financieros cualificados y bajo la propia responsabilidad del inversor.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8 -->
+            <section id="riesgos" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">8. Divulgación de Riesgos</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>La inversión en activos gemológicos conlleva riesgos significativos que usted debe comprender y aceptar:</p>
+                    <ul class="space-y-3 pl-4 mt-4">
+                        <li class="flex gap-3"><span class="text-[#189292] font-bold mt-0.5">—</span><span><strong class="text-on-surface">Riesgo de liquidez:</strong> Los diamantes son activos ilíquidos. La venta puede requerir tiempo y puede no realizarse al precio de valoración estimado.</span></li>
+                        <li class="flex gap-3"><span class="text-[#189292] font-bold mt-0.5">—</span><span><strong class="text-on-surface">Riesgo de mercado:</strong> El mercado gemológico puede verse afectado por factores globales, tendencias de consumo y variaciones en la oferta de diamantes naturales y sintéticos.</span></li>
+                        <li class="flex gap-3"><span class="text-[#189292] font-bold mt-0.5">—</span><span><strong class="text-on-surface">Riesgo de custodia:</strong> Pese a los protocolos Tier-1 implementados, ningún sistema de custodia está exento de riesgo residual ante eventos extraordinarios.</span></li>
+                        <li class="flex gap-3"><span class="text-[#189292] font-bold mt-0.5">—</span><span><strong class="text-on-surface">Riesgo regulatorio:</strong> Cambios en la legislación aplicable en su jurisdicción pueden afectar a la disponibilidad o condiciones de los servicios.</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 9 -->
+            <section id="kyc" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">9. KYC y Cumplimiento AML</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>En cumplimiento de las normativas internacionales de Prevención del Blanqueo de Capitales (AML) y Conocimiento del Cliente (KYC), Gemo se reserva el derecho de solicitar en cualquier momento documentación de verificación de identidad, origen de fondos y cualquier otro documento que considere necesario.</p>
+                    <p>El incumplimiento de los procesos de verificación KYC puede resultar en la suspensión temporal o definitiva del acceso a determinados servicios, sin que ello genere responsabilidad alguna por parte de Gemo.</p>
+                    <p>Toda la información recopilada durante el proceso KYC se tratará conforme a nuestra <a href="privacy-policy.html" class="text-[#189292] underline font-semibold">Política de Privacidad</a> y las normativas de protección de datos aplicables.</p>
+                </div>
+            </section>
+
+            <!-- Section 10 -->
+            <section id="responsabilidad" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">10. Limitación de Responsabilidad</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>En la máxima medida permitida por la ley aplicable, Gemo y sus directivos, empleados, agentes y licenciantes no serán responsables de ningún daño indirecto, incidental, especial, consecuente o punitivo, incluyendo pérdidas de beneficios, datos o fondo de comercio, derivadas del uso o de la imposibilidad de uso de los servicios.</p>
+                    <p>La responsabilidad total de Gemo ante usted por cualquier reclamación derivada del uso de los servicios no excederá, en ningún caso, el importe total de las comisiones abonadas por usted a Gemo en los doce meses precedentes a la fecha del evento que origina la reclamación, o la cantidad de cien euros (100€), tomando la cifra que sea mayor.</p>
+                </div>
+            </section>
+
+            <!-- Section 11 -->
+            <section id="rescision" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">11. Rescisión</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>Usted puede rescindir estos Términos en cualquier momento cerrando su cuenta y cesando el uso de los servicios. Gemo puede suspender o cancelar su acceso, con o sin previo aviso, si existe incumplimiento de estos Términos, actividad fraudulenta, acceso no autorizado, o por cualquier motivo legítimo a su discreción.</p>
+                    <p>Tras la rescisión, las disposiciones de estos Términos que por su naturaleza deben sobrevivir (incluyendo sin limitación las cláusulas de propiedad intelectual, exclusión de garantías, limitación de responsabilidad y ley aplicable) permanecerán en vigor.</p>
+                </div>
+            </section>
+
+            <!-- Section 12 -->
+            <section id="jurisdiccion" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">12. Ley Aplicable y Jurisdicción</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>Estos Términos se regirán e interpretarán de conformidad con las leyes del Reino de España, sin perjuicio de sus normas sobre conflicto de leyes. Para cualquier controversia derivada de estos Términos o del uso de los servicios, las partes se someten a la jurisdicción exclusiva de los Juzgados y Tribunales de Madrid, España, renunciando expresamente a cualquier otro fuero.</p>
+                    <p>No obstante lo anterior, Gemo se reserva el derecho de solicitar medidas cautelares o de otro tipo ante cualquier tribunal competente cuando sea necesario para proteger sus derechos de propiedad intelectual o intereses legítimos.</p>
+                </div>
+            </section>
+
+            <!-- Section 13 -->
+            <section id="contacto-tos" class="legal-section">
+                <span class="accent-bar"></span>
+                <h2 class="font-headline text-2xl font-black uppercase tracking-tighter text-primary mb-6">13. Contacto</h2>
+                <div class="space-y-4 text-on-surface-variant text-sm leading-relaxed">
+                    <p>Si tiene preguntas sobre estos Términos de Servicio, puede ponerse en contacto con nuestro equipo legal:</p>
+                    <div class="bg-surface-container-low border border-outline-variant/40 p-6 rounded-sm mt-4 space-y-3">
+                        <div class="flex gap-3 items-center text-xs">
+                            <span class="material-symbols-outlined text-sm text-[#189292]">mail</span>
+                            <a href="mailto:legal@gemo.ai" class="font-bold text-on-surface hover:underline">legal@gemo.ai</a>
+                        </div>
+                        <div class="flex gap-3 items-center text-xs">
+                            <span class="material-symbols-outlined text-sm text-[#189292]">location_on</span>
+                            <span>Institutional Gemological Exchange, Madrid, España</span>
+                        </div>
+                        <div class="flex gap-3 items-center text-xs">
+                            <span class="material-symbols-outlined text-sm text-[#189292]">schedule</span>
+                            <span>Tiempo de respuesta: máximo 72 horas hábiles</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+    </div>
+</main>
+
+<footer class="bg-white border-t border-outline-variant/30 py-12 mt-16">
+    <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="font-headline font-black text-xl uppercase tracking-tighter">Gemo</div>
+        <div class="flex flex-wrap justify-center gap-8">
+            <a href="terms-of-service.html" class="text-[9px] font-bold uppercase tracking-widest text-primary hover:text-primary transition-colors border-b border-primary pb-0.5">Términos de Servicio</a>
+            <a href="privacy-policy.html" class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Política de Privacidad</a>
+            <a href="#" class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Alertas en Tiempo Real</a>
+        </div>
+        <div class="text-[9px] text-on-surface-variant font-medium text-center md:text-right">
+            © 2024 INSTITUTIONAL GEMOLOGICAL EXCHANGE. TODOS LOS DERECHOS RESERVADOS.<br>
+            CERTIFICACIÓN GIA & IGI.
+        </div>
+    </div>
+</footer>
+
+<script>
+// Highlight active TOC item on scroll
+const sections = document.querySelectorAll('.legal-section');
+const tocLinks = document.querySelectorAll('#toc a');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            tocLinks.forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`#toc a[href="#${entry.target.id}"]`);
+            if (activeLink) activeLink.classList.add('active');
+        }
+    });
+}, { rootMargin: '-20% 0px -70% 0px' });
+
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
