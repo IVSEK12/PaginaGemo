@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gemo | Acceso a la Plataforma</title>
+<meta name="description" content="Acceda a su cuenta Gemo o regístrese para empezar a invertir en activos gemológicos certificados GIA/IGI."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            colors: {
+                "surface": "#f7f9fb",
+                "on-surface": "#191c1e",
+                "on-surface-variant": "#44474c",
+                "surface-container": "#eceef0",
+                "surface-container-low": "#f2f4f6",
+                "outline-variant": "#c4c6cc",
+                "primary": "#000000",
+                "on-primary": "#ffffff",
+            },
+            fontFamily: { "headline": ["Manrope"], "body": ["Inter"] },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem"}
+        }
+    }
+}
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48; }
+
+  /* Split layout bg */
+  .left-panel { background: linear-gradient(160deg, #050d14 0%, #0a1a28 60%, #0f2235 100%); }
+
+  /* Tab underline animation */
+  .tab-btn { position: relative; }
+  .tab-btn::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #000; transition: width 0.25s ease; }
+  .tab-btn.active::after { width: 100%; }
+  .tab-btn.active { color: #191c1e; font-weight: 800; }
+
+  /* Input focus */
+  .gemo-input { transition: border-color 0.2s, box-shadow 0.2s; }
+  .gemo-input:focus { outline: none; border-color: #191c1e; box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
+
+  /* Button hover */
+  .gemo-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .gemo-btn { transition: opacity 0.2s, transform 0.2s; }
+
+  /* Panel fade */
+  .form-panel { animation: fadeUp 0.35s ease both; }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+  /* Dot grid */
+  .dot-grid { background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px); background-size: 22px 22px; }
+
+  /* Stats ticker */
+  .stat-label { color: rgba(255,255,255,0.45); }
+  .stat-value { color: #fff; }
+  .stat-up { color: #189292; }
+</style>
+</head>
+<body class="bg-[#F7F9FB] font-body text-on-surface antialiased min-h-screen flex flex-col">
+
+<!-- Minimal Nav -->
+<nav class="absolute top-0 w-full z-50 px-8 py-5 flex justify-between items-center">
+    <a href="index.html" class="text-white text-xl font-black tracking-tighter uppercase font-headline">Gemo</a>
+    <a href="index.html" class="flex items-center gap-1.5 text-white/60 hover:text-white text-[10px] font-bold uppercase tracking-widest transition-colors">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        Volver al sitio
+    </a>
+</nav>
+
+<div class="flex flex-1 min-h-screen">
+
+    <!-- LEFT: Dark Vault Panel -->
+    <div class="hidden lg:flex lg:w-1/2 left-panel dot-grid flex-col justify-between p-14 pt-28 relative overflow-hidden">
+
+        <!-- Floating accent -->
+        <div class="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#189292]/5 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-0 w-48 h-48 rounded-full bg-white/3 blur-3xl pointer-events-none"></div>
+
+        <div class="space-y-10 relative z-10">
+            <div class="inline-block text-[9px] font-bold uppercase tracking-[0.3em] text-[#189292] border border-[#189292]/30 px-3 py-1.5 rounded-sm">
+                Acceso Institucional
+            </div>
+            <div class="space-y-3">
+                <h2 class="font-headline text-5xl font-black uppercase tracking-tighter leading-none text-white">
+                    La Bóveda<br/>le espera.
+                </h2>
+                <p class="text-white/50 text-sm leading-relaxed max-w-xs">
+                    Acceda a inventario de diamantes certificados, valoraciones en tiempo real y estrategias de inversión de grado institucional.
+                </p>
+            </div>
+
+            <!-- Live stats mini-panel -->
+            <div class="bg-white/5 border border-white/10 rounded-sm p-6 space-y-5 backdrop-blur-sm">
+                <div class="text-[9px] font-bold uppercase tracking-widest text-white/30">Estado del Mercado · En Vivo</div>
+                <div class="grid grid-cols-2 gap-x-8 gap-y-4">
+                    <div>
+                        <div class="stat-label text-[9px] uppercase tracking-widest">Índice GDI</div>
+                        <div class="stat-value text-xl font-headline font-black tracking-tight">14.282<span class="text-sm">,50</span></div>
+                        <div class="stat-up text-[10px] font-bold">+1.24% HOY</div>
+                    </div>
+                    <div>
+                        <div class="stat-label text-[9px] uppercase tracking-widest">Retorno Fancy YTD</div>
+                        <div class="stat-value text-xl font-headline font-black tracking-tight">+8.7<span class="text-sm">%</span></div>
+                        <div class="stat-up text-[10px] font-bold">VS. ORO +2.1%</div>
+                    </div>
+                    <div>
+                        <div class="stat-label text-[9px] uppercase tracking-widest">Activos en Bóveda</div>
+                        <div class="stat-value text-xl font-headline font-black tracking-tight">€3.2<span class="text-sm">M</span></div>
+                        <div class="text-white/30 text-[9px]">AUDITADOS GIA/IGI</div>
+                    </div>
+                    <div>
+                        <div class="stat-label text-[9px] uppercase tracking-widest">CAGR 5 Años</div>
+                        <div class="stat-value text-xl font-headline font-black tracking-tight">11.2<span class="text-sm">%</span></div>
+                        <div class="text-white/30 text-[9px]">DIAMANTES FANCY</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom guarantees -->
+        <div class="flex items-center gap-8 relative z-10">
+            <div class="flex items-center gap-2 text-white/40 text-[9px] uppercase tracking-widest font-bold">
+                <span class="material-symbols-outlined text-sm text-white/30">verified_user</span>
+                Cifrado AES-256
+            </div>
+            <div class="flex items-center gap-2 text-white/40 text-[9px] uppercase tracking-widest font-bold">
+                <span class="material-symbols-outlined text-sm text-white/30">shield</span>
+                RGPD Compliant
+            </div>
+            <div class="flex items-center gap-2 text-white/40 text-[9px] uppercase tracking-widest font-bold">
+                <span class="material-symbols-outlined text-sm text-white/30">lock</span>
+                MFA Activable
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT: Form Panel -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center px-8 py-20 lg:py-0">
+        <div class="w-full max-w-md space-y-8">
+
+            <!-- Mobile logo -->
+            <div class="lg:hidden text-center">
+                <div class="font-headline font-black text-2xl uppercase tracking-tighter">Gemo</div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex gap-8 border-b border-outline-variant/60 pb-0">
+                <button id="tab-login" class="tab-btn active pb-4 font-headline font-bold uppercase text-sm tracking-tight" onclick="switchTab('login')">
+                    Iniciar Sesión
+                </button>
+                <button id="tab-register" class="tab-btn text-on-surface-variant pb-4 font-headline font-bold uppercase text-sm tracking-tight" onclick="switchTab('register')">
+                    Registrarse
+                </button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <div id="form-login" class="form-panel space-y-6">
+                <div class="space-y-1">
+                    <h1 class="font-headline text-2xl font-black uppercase tracking-tighter">Bienvenido de nuevo</h1>
+                    <p class="text-on-surface-variant text-xs leading-relaxed">Acceda a su cartera gemológica y a la Bóveda Institucional.</p>
+                </div>
+
+                <form onsubmit="handleLogin(event)" class="space-y-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant" for="login-email">Correo Electrónico</label>
+                        <input
+                            id="login-email"
+                            type="email"
+                            placeholder="inversor@empresa.com"
+                            required
+                            class="gemo-input w-full border border-outline-variant bg-white px-4 py-3 text-sm rounded-sm placeholder:text-on-surface-variant/40"
+                        />
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between items-center">
+                            <label class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant" for="login-pass">Contraseña</label>
+                            <button type="button" class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline transition-colors">¿Olvidó su contraseña?</button>
+                        </div>
+                        <div class="relative">
+                            <input
+                                id="login-pass"
+                                type="password"
+                                placeholder="••••••••••••"
+                                required
+                                class="gemo-input w-full border border-outline-variant bg-white px-4 py-3 text-sm rounded-sm placeholder:text-on-surface-variant/40 pr-12"
+                            />
+                            <button type="button" onclick="togglePass('login-pass', this)" class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-base">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 pt-1">
+                        <input id="remember" type="checkbox" class="w-3.5 h-3.5 rounded-sm border-outline-variant accent-black"/>
+                        <label for="remember" class="text-[10px] text-on-surface-variant">Mantener sesión iniciada</label>
+                    </div>
+
+                    <button id="login-btn" type="submit" class="gemo-btn w-full bg-primary text-on-primary py-3.5 text-xs font-headline font-black uppercase tracking-widest rounded-sm flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-base">lock_open</span>
+                        Acceder a la Plataforma
+                    </button>
+                </form>
+
+                <!-- Divider -->
+                <div class="flex items-center gap-4">
+                    <div class="flex-1 h-px bg-outline-variant/50"></div>
+                    <span class="text-[9px] text-on-surface-variant uppercase tracking-widest">o continúe con</span>
+                    <div class="flex-1 h-px bg-outline-variant/50"></div>
+                </div>
+
+                <!-- OAuth buttons -->
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="flex items-center justify-center gap-2 border border-outline-variant bg-white py-2.5 px-4 text-[10px] font-bold uppercase tracking-widest hover:bg-surface-container transition-colors rounded-sm">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="w-4 h-4" alt="Google"/>
+                        Google
+                    </button>
+                    <button class="flex items-center justify-center gap-2 border border-outline-variant bg-white py-2.5 px-4 text-[10px] font-bold uppercase tracking-widest hover:bg-surface-container transition-colors rounded-sm">
+                        <span class="material-symbols-outlined text-base">apartment</span>
+                        LinkedIn
+                    </button>
+                </div>
+
+                <p class="text-center text-[10px] text-on-surface-variant">
+                    ¿No tiene cuenta?
+                    <button onclick="switchTab('register')" class="font-bold text-on-surface hover:underline">Regístrese aquí</button>
+                </p>
+            </div>
+
+            <!-- REGISTER FORM -->
+            <div id="form-register" class="form-panel space-y-6 hidden">
+                <div class="space-y-1">
+                    <h1 class="font-headline text-2xl font-black uppercase tracking-tighter">Crear Cuenta</h1>
+                    <p class="text-on-surface-variant text-xs leading-relaxed">Únase a la red de inversores gemológicos institucionales de Gemo.</p>
+                </div>
+
+                <form onsubmit="handleRegister(event)" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant" for="reg-name">Nombre</label>
+                            <input id="reg-name" type="text" placeholder="Ana" required
+                                class="gemo-input w-full border border-outline-variant bg-white px-4 py-3 text-sm rounded-sm placeholder:text-on-surface-variant/40"/>
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant" for="reg-surname">Apellidos</label>
+                            <input id="reg-surname" type="text" placeholder="García" required
+                                class="gemo-input w-full border border-outline-variant bg-white px-4 py-3 text-sm rounded-sm placeholder:text-on-surface-variant/40"/>
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant" for="reg-email">Correo Electrónico</label>
+                        <input id="reg-email" type="email" placeholder="ana@empresa.com" required
+                            class="gemo-input w-full border border-outline-variant bg-white px-4 py-3 text-sm rounded-sm placeholder:text-on-surface-variant/40"/>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant" for="reg-org">Organización <span class="font-normal text-on-surface-variant/60">(opcional)</span></label>
+                        <input id="reg-org" type="text" placeholder="Fondo de Inversión S.A."
+                            class="gemo-input w-full border border-outline-variant bg-white px-4 py-3 text-sm rounded-sm placeholder:text-on-surface-variant/40"/>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant" for="reg-pass">Contraseña</label>
+                        <div class="relative">
+                            <input id="reg-pass" type="password" placeholder="Mín. 12 caracteres" required minlength="8"
+                                class="gemo-input w-full border border-outline-variant bg-white px-4 py-3 text-sm rounded-sm placeholder:text-on-surface-variant/40 pr-12"
+                                oninput="checkStrength(this.value)"/>
+                            <button type="button" onclick="togglePass('reg-pass', this)" class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-base">visibility</span>
+                            </button>
+                        </div>
+                        <!-- Strength bar -->
+                        <div class="flex gap-1 mt-1.5">
+                            <div id="s1" class="h-0.5 flex-1 bg-outline-variant/40 rounded transition-colors"></div>
+                            <div id="s2" class="h-0.5 flex-1 bg-outline-variant/40 rounded transition-colors"></div>
+                            <div id="s3" class="h-0.5 flex-1 bg-outline-variant/40 rounded transition-colors"></div>
+                            <div id="s4" class="h-0.5 flex-1 bg-outline-variant/40 rounded transition-colors"></div>
+                        </div>
+                        <div id="strength-label" class="text-[9px] text-on-surface-variant"></div>
+                    </div>
+
+                    <!-- Investor type -->
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant">Perfil de Inversor</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="flex items-center gap-2 border border-outline-variant bg-white px-3 py-2.5 rounded-sm cursor-pointer hover:bg-surface-container transition-colors">
+                                <input type="radio" name="investor-type" value="retail" class="accent-black" checked/>
+                                <span class="text-[10px] font-bold uppercase tracking-wide">Minorista</span>
+                            </label>
+                            <label class="flex items-center gap-2 border border-outline-variant bg-white px-3 py-2.5 rounded-sm cursor-pointer hover:bg-surface-container transition-colors">
+                                <input type="radio" name="investor-type" value="institutional" class="accent-black"/>
+                                <span class="text-[10px] font-bold uppercase tracking-wide">Institucional</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-2 pt-1">
+                        <input id="reg-terms" type="checkbox" required class="w-3.5 h-3.5 mt-0.5 rounded-sm border-outline-variant accent-black shrink-0"/>
+                        <label for="reg-terms" class="text-[10px] text-on-surface-variant leading-relaxed">
+                            Acepto los <a href="terms-of-service.html" class="font-bold text-on-surface hover:underline">Términos de Servicio</a> y la <a href="privacy-policy.html" class="font-bold text-on-surface hover:underline">Política de Privacidad</a> de Gemo, incluyendo el tratamiento de mis datos bajo RGPD.
+                        </label>
+                    </div>
+
+                    <button id="register-btn" type="submit" class="gemo-btn w-full bg-primary text-on-primary py-3.5 text-xs font-headline font-black uppercase tracking-widest rounded-sm flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-base">person_add</span>
+                        Crear mi Cuenta
+                    </button>
+                </form>
+
+                <p class="text-center text-[10px] text-on-surface-variant">
+                    ¿Ya tiene cuenta?
+                    <button onclick="switchTab('login')" class="font-bold text-on-surface hover:underline">Inicie sesión aquí</button>
+                </p>
+            </div>
+
+            <!-- SUCCESS STATE (hidden) -->
+            <div id="form-success" class="form-panel space-y-6 hidden text-center py-8">
+                <div class="w-16 h-16 mx-auto bg-[#189292]/10 rounded-full flex items-center justify-center">
+                    <span class="material-symbols-outlined text-3xl text-[#189292]">check_circle</span>
+                </div>
+                <div class="space-y-2">
+                    <h2 class="font-headline text-xl font-black uppercase tracking-tighter" id="success-title">Acceso concedido</h2>
+                    <p class="text-on-surface-variant text-xs leading-relaxed" id="success-msg">Redirigiendo a la plataforma...</p>
+                </div>
+                <div class="flex justify-center">
+                    <div class="animate-spin w-5 h-5 border-2 border-outline-variant border-t-primary rounded-full"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Toast notification -->
+<div id="toast" class="fixed bottom-6 right-6 bg-primary text-on-primary px-5 py-3 text-xs font-bold uppercase tracking-widest rounded-sm shadow-2xl flex items-center gap-2 translate-y-20 opacity-0 transition-all duration-300 z-50">
+    <span class="material-symbols-outlined text-base" id="toast-icon">info</span>
+    <span id="toast-msg">Mensaje</span>
+</div>
+
+<script>
+// ── Tab switching ──────────────────────────────────────────────
+function switchTab(tab) {
+    const isLogin = tab === 'login';
+    document.getElementById('form-login').classList.toggle('hidden', !isLogin);
+    document.getElementById('form-register').classList.toggle('hidden', isLogin);
+    document.getElementById('tab-login').classList.toggle('active', isLogin);
+    document.getElementById('tab-register').classList.toggle('active', !isLogin);
+    // re-trigger animation
+    const el = document.getElementById(isLogin ? 'form-login' : 'form-register');
+    el.style.animation = 'none';
+    requestAnimationFrame(() => { el.style.animation = ''; });
+}
+
+// ── Show/hide password ─────────────────────────────────────────
+function togglePass(inputId, btn) {
+    const input = document.getElementById(inputId);
+    const icon = btn.querySelector('.material-symbols-outlined');
+    const isPass = input.type === 'password';
+    input.type = isPass ? 'text' : 'password';
+    icon.textContent = isPass ? 'visibility_off' : 'visibility';
+}
+
+// ── Password strength ──────────────────────────────────────────
+function checkStrength(val) {
+    let score = 0;
+    if (val.length >= 8)  score++;
+    if (val.length >= 12) score++;
+    if (/[A-Z]/.test(val) && /[0-9]/.test(val)) score++;
+    if (/[^A-Za-z0-9]/.test(val)) score++;
+
+    const bars = ['s1','s2','s3','s4'];
+    const colors = ['bg-red-400','bg-orange-400','bg-yellow-400','bg-[#189292]'];
+    const labels = ['','Débil','Media','Fuerte','Muy fuerte'];
+
+    bars.forEach((id, i) => {
+        const el = document.getElementById(id);
+        el.className = 'h-0.5 flex-1 rounded transition-colors ' + (i < score ? colors[score - 1] : 'bg-outline-variant/40');
+    });
+    document.getElementById('strength-label').textContent = labels[score] || '';
+}
+
+// ── Toast ──────────────────────────────────────────────────────
+function showToast(msg, icon = 'info') {
+    const t = document.getElementById('toast');
+    document.getElementById('toast-msg').textContent = msg;
+    document.getElementById('toast-icon').textContent = icon;
+    t.classList.remove('translate-y-20', 'opacity-0');
+    setTimeout(() => t.classList.add('translate-y-20', 'opacity-0'), 3200);
+}
+
+// ── Login handler ──────────────────────────────────────────────
+function handleLogin(e) {
+    e.preventDefault();
+    const btn = document.getElementById('login-btn');
+    btn.innerHTML = '<div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> Verificando...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+        // Demo: always succeeds
+        document.getElementById('form-login').classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+        document.getElementById('success-title').textContent = 'Acceso Concedido';
+        document.getElementById('success-msg').textContent = 'Sus credenciales han sido verificadas. Redirigiendo a su cartera...';
+        showToast('Sesión iniciada correctamente', 'check_circle');
+        setTimeout(() => { window.location.href = 'institutional-vault.html'; }, 2000);
+    }, 1800);
+}
+
+// ── Register handler ───────────────────────────────────────────
+function handleRegister(e) {
+    e.preventDefault();
+    const btn = document.getElementById('register-btn');
+    btn.innerHTML = '<div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> Creando cuenta...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+        document.getElementById('form-register').classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+        document.getElementById('success-title').textContent = '¡Cuenta Creada!';
+        document.getElementById('success-msg').textContent = 'Hemos enviado un correo de verificación. Redirigiendo a la plataforma...';
+        showToast('Cuenta creada con éxito', 'check_circle');
+        setTimeout(() => { window.location.href = 'index.html'; }, 2500);
+    }, 2200);
+}
+
+// ── Open tab from URL param ────────────────────────────────────
+const params = new URLSearchParams(window.location.search);
+if (params.get('tab') === 'register') switchTab('register');
+</script>
+
+</body>
+</html>
